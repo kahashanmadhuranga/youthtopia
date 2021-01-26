@@ -53,3 +53,42 @@
 hr {
   border-bottom: 2px solid #ffffff;
 }
+
+.card-img-custom {
+  position: absolute;
+  width: 100px;
+  top: 38%;
+  cursor: pointer;
+}
+
+.main-title {
+  color: #163959;
+  font-weight: 400 !important;
+}
+
+.like-img {
+  left: 30px;
+}
+
+.dis-like-img {
+  right: 30px;
+}
+
+@media only screen and (max-width: 992px) {
+  .card-img-custom {
+    width: 65px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .card-img-custom {
+    width: 50px;
+  }
+}
+
+
+@media only screen and (max-width: 450px) {
+  .card-img-custom {
+    width: 35px;
+  }
+}

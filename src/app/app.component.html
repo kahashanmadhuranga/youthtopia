@@ -61,12 +61,18 @@
 <div class="content">
   <div class="container">
 
-    <h2 class="text-center mt-5">YOUTHTOPIA COSUMES</h2>
-    <h5 class="text-center mb-3">Peer to peer product & brand discussion</h5>
+    <h2 class="text-center mt-5 main-title">YOUTHTOPIA COSUMES</h2>
+    <h5 class="text-center mb-3 main-title">Peer to peer product & brand discussion</h5>
 
     <div class="w-100 text-center align-content-center align-items-center position-relative d-flex">
       <div class="custom-card">
-        <img src="../assets/card-img-1.png" alt="" style="width: 100%">
+
+        <div class="position-relative">
+          <img src="../assets/card-img-1.png" alt="" style="width: 100%">
+          <img src="../assets/like-img.png" alt="like-img" class="card-img-custom like-img">
+          <img src="../assets/deslike-img.png" alt="deslike-img" class="card-img-custom dis-like-img">
+        </div>
+
         <div class="card-content p-4 text-left">
           <h4>PRODUCT DETAILS</h4><br><br>
           <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet commodi cum cumque deleniti doloribus eaque
@@ -110,7 +116,7 @@
       </div>
     </div>
 
-    <h2 class="text-center mt-5 mb-5">FEATURED PRODUCTS</h2>
+    <h2 class="text-center mt-5 mb-5 main-title">FEATURED PRODUCTS</h2>
 
     <div class="row">
       <div class="col-12 col-md-6 col-lg-4 col-xl-3" *ngFor="let data of featuredProducts">
