@@ -1,0 +1,28 @@
+.content {
+  padding-top: 55px;
+}
+
+.custom-card {
+  width: 100%;
+  min-height: 400px;
+  background: darkgray;
+}
+
+.card-title {
+  color: #0C669A;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.card-description {
+  font-size: 13px;
+}
+
+.card {
+  background: transparent;
+  border: none;
+}
+
+.card-img {
+  border-radius: 15px;
+}
