@@ -4,8 +4,9 @@
 
 .custom-card {
   width: 100%;
-  min-height: 400px;
   background: darkgray;
+  position: absolute !important;
+  top: 0 !important;
 }
 
 .card-title {
@@ -72,6 +73,12 @@ hr {
 
 .dis-like-img {
   right: 30px;
+}
+
+.my-card {
+  position: absolute;
+  top: 0;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 992px) {

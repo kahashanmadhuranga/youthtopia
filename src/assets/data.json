@@ -30,5 +30,17 @@
       "title": "title 1",
       "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
     }
+  ],
+  "products": [
+    {
+      "image": "../assets/card-img-1.png",
+      "title": "title 1",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
+    },
+    {
+      "image": "../assets/card-img-2.png",
+      "title": "title 1",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
+    }
   ]
 }
