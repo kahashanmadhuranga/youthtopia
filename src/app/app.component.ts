@@ -12,6 +12,7 @@ export class AppComponent implements OnInit {
   title = 'Youthtpoia';
 
   featuredProducts: Array<any> = [];
+  count = 9;
 
   constructor() {
   }

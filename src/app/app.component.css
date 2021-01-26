@@ -26,3 +26,30 @@
 .card-img {
   border-radius: 15px;
 }
+
+.card-content {
+  background: #0C669A 0 0 no-repeat padding-box;
+  color: white;
+}
+
+.my-item-content {
+  background: #0C669A 0 0 no-repeat padding-box;
+}
+
+.liked-count-view {
+  border-radius: 100%;
+  padding: 2px 10px 3px 10px;
+  font-size: 19px;
+  font-weight: bold;
+  border: 2px solid #ffffff;
+  cursor: default;
+}
+
+.my-liked-item-container {
+  background: rgba(12, 102, 154, 0.76);
+  color: white;
+}
+
+hr {
+  border-bottom: 2px solid #ffffff;
+}
