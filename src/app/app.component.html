@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light"
      style="position: fixed; top: 0; left: 0; z-index: 500; width: 100vw">
-  <a class="navbar-brand" href="#">YOUTHTOPIA</a>
+  <a class="navbar-brand pl-5" href="#"><img src="../assets/logo.png" alt="logo" style="height: 35px"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -79,24 +79,27 @@
 
               <img [src]="prod.image" alt="" style="width: 100%"
                    (swipeleft)="swipeLeft($event,'fadeOutTopLeft', i, like)"
-                   (swiperight)="swipeRight($event, 'fadeOutTopRight', i, dislike)" [id]="'image-'+i">
+                   (swiperight)="swipeRight($event, 'fadeOutTopRight', i, dislike)" [id]="'image-'+i"
+                   (swipeup)="swipeTop($event)" (swipedown)="swipeDown($event)">
 
               <img src="../assets/like-img.png" alt="like-img" class="card-img-custom like-img" #like>
               <img src="../assets/deslike-img.png" alt="deslike-img" class="card-img-custom dis-like-img" #dislike>
             </div>
 
-            <div class="card-content p-4 text-left" [id]="'description-'+i"
+            <div class="card-content p-4 text-left position-relative" [id]="'description-'+i"
                  (swipeleft)="swipeLeft($event,'fadeOutTopLeft', i, like)"
-                 (swiperight)="swipeRight($event, 'fadeOutTopRight', i, dislike)">
+                 (swiperight)="swipeRight($event, 'fadeOutTopRight', i, dislike)"
+                 (swipeup)="swipeTop($event)" (swipedown)="swipeDown($event)">
               <h4>PRODUCT DETAILS</h4>
+              <h5 class="comment-btn" data-toggle="modal" data-target=".bd-example-modal-lg">Comments</h5>
               <h4>{{prod.description}}</h4>
             </div>
           </div>
         </div>
-
-        <div class="text-center" (click)="reload()">Reload</div>
       </div>
 
+      <h4 class="text-center m-3" *ngIf="products.length === 0" style="cursor: pointer" (click)="reload()">START
+        AGAIN</h4>
 
       <div class="position-relative">
         <div class="my-item-content p-4" id="liked-item" style="margin-top: 75vh">
@@ -149,3 +152,39 @@
 
 <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#0c669a" type="ball-scale-multiple"
              [fullScreen]="true"></ngx-spinner>
+
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="p-4 m-3 comment-container">
+        <h1 class="font-weight-bold pb-3">Comments</h1>
+
+        <div class="row">
+          <div class="col-3 col-sm-2 col-md-2 text-center">
+            <img src="../assets/profile-user.png" class="user-avatar" alt="" style="width: 100%">
+          </div>
+          <div class="col-9 col-sm-10 col-md-10">
+            <textarea name="" id="" cols="30" rows="3" class="form-control rounded-0"></textarea>
+            <button class="custom-btn mb-3">Post</button>
+          </div>
+        </div>
+
+        <div class="row exists-comments">
+          <div class="col-3 col-sm-2 col-md-2 text-center">
+            <img src="../assets/profile-user.png" class="user-avatar" alt="" style="width: 100%">
+          </div>
+          <div class="col-9 col-sm-10 col-md-10">
+            <div class="pb-2">
+              <span class="pr-3">username</span>
+              <small>2021-01-12</small>
+            </div>
+            <div>Description</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

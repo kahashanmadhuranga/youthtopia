@@ -24,7 +24,8 @@ export class AppComponent implements OnInit {
   animationStateArray: Array<{ animationState: string }> = [];
   count = 0;
 
-  likedItem: Array<{ image: string, title: string, description: string }> = [];
+  likedItem: Array<{ image: string, title: string, description: string, id: number }> = [];
+  removedItem: Array<{ image: string, title: string, description: string, id: number }> = [];
 
 
   constructor(private spinner: NgxSpinnerService) {
@@ -33,7 +34,11 @@ export class AppComponent implements OnInit {
   async ngOnInit() {
     this.spinner.show();
     this.featuredProducts = data.featuredProducts;
+
     await this.setProducts();
+    this.getRemovedProjects();
+    this.getLikedProject();
+
     setTimeout(async () => {
       await this.viewOnlyTopCard();
     });
@@ -50,6 +55,7 @@ export class AppComponent implements OnInit {
       element.style.display = 'block';
       this.animationStateArray[index].animationState = state;
       this.setLikedItem(index);
+      this.setRemovedItem(index);
       this.removeCard(index);
     }
   }
@@ -60,6 +66,7 @@ export class AppComponent implements OnInit {
     if (!this.animationStateArray[index].animationState) {
       element.style.display = 'block';
       this.animationStateArray[index].animationState = state;
+      this.setRemovedItem(index);
       this.removeCard(index);
     }
   }
@@ -75,6 +82,11 @@ export class AppComponent implements OnInit {
     this.likedItem.push(this.products[index]);
     localStorage.setItem('likedItem', JSON.stringify(this.likedItem));
     this.count++;
+  }
+
+  setRemovedItem(index) {
+    this.removedItem.push(this.products[index]);
+    localStorage.setItem('removedItem', JSON.stringify(this.removedItem));
   }
 
   removeCard(index: number) {
@@ -95,7 +107,28 @@ export class AppComponent implements OnInit {
     });
   }
 
+  getLikedProject() {
+    console.log('removed');
+    if (localStorage.getItem('likedItem')) {
+      this.likedItem = JSON.parse(localStorage.getItem('likedItem'));
+      this.count = this.likedItem.length;
+      console.log(this.removedItem);
+    }
+  }
+
+  getRemovedProjects() {
+    console.log('liked');
+    if (localStorage.getItem('removedItem')) {
+      this.removedItem = JSON.parse(localStorage.getItem('removedItem'));
+      this.removedItem.forEach(item => {
+        this.products.splice(this.products.indexOf(item));
+      });
+      console.log(this.removedItem);
+    }
+  }
+
   async reload() {
+    localStorage.clear();
     location.reload();
     await this.setProducts();
   }
@@ -129,5 +162,13 @@ export class AppComponent implements OnInit {
         resolve(false);
       }
     });
+  }
+
+  swipeTop(event) {
+    event.target.scrollIntoView({inline: 'start', block: 'start', behavior: 'smooth'});
+  }
+
+  swipeDown(event) {
+    event.target.scrollIntoView({inline: 'end', block: 'end', behavior: 'smooth'});
   }
 }

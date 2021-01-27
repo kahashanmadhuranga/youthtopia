@@ -13,11 +13,16 @@ body {
 
 .bg-light {
   background: #0C669A 0 0 no-repeat padding-box !important;
-  opacity: 0.83;
+  /*opacity: 0.83;*/
 }
 
 .navbar-nav .nav-link {
   color: white !important;
+}
+
+.modal-content {
+  border-radius: 0 !important;
+  border: none !important;
 }
 
 /*html, body { height: 100%; }*/
