@@ -5,6 +5,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import * as Hammer from 'hammerjs';
+import {NgxSpinnerModule, NgxSpinnerService} from 'ngx-spinner';
 
 @Injectable()
 export class MyHammerConfig extends HammerGestureConfig {
@@ -21,13 +22,15 @@ export class MyHammerConfig extends HammerGestureConfig {
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HammerModule
+    HammerModule,
+    NgxSpinnerModule
   ],
   providers: [
     {
       provide: HAMMER_GESTURE_CONFIG,
       useClass: MyHammerConfig,
     },
+    NgxSpinnerService
   ],
   bootstrap: [AppComponent]
 })

@@ -65,65 +65,74 @@
     <h2 class="text-center mt-5 main-title">YOUTHTOPIA COSUMES</h2>
     <h5 class="text-center mb-3 main-title">Peer to peer product & brand discussion</h5>
 
+    <div>
 
-    <div class="text-center align-content-center align-items-center position-relative d-flex my-card"
-         *ngFor="let prod of products; let i=index"
-         [@cardAnimator]="animationStateArray[i].animationState"
-         id="card-container">
-      <div class="custom-card" [id]="'custom-card'+i">
 
-        <div class="position-relative">
+      <div class="position-relative" style="z-index: 100">
+        <div class="text-center align-content-center align-items-center position-relative d-flex my-card"
+             *ngFor="let prod of products; let i=index"
+             [@cardAnimator]="animationStateArray[i].animationState"
+             id="card-container">
+          <div class="custom-card" [id]="'custom-card-'+i" (window:resize)="resize(i,$event)">
 
-          <img [src]="prod.image" alt="" style="width: 100%"
-               (swipeleft)="swipeLeft($event,'fadeOutTopLeft', i)"
-               (swiperight)="swipeRight($event, 'fadeOutTopRight', i)" [id]="'image-'+i">
+            <div class="position-relative">
 
-          <img src="../assets/like-img.png" alt="like-img" class="card-img-custom like-img"
-               (swiperight)="swipeRight($event, 'fadeOutTopRight', i)">
-          <img src="../assets/deslike-img.png" alt="deslike-img" class="card-img-custom dis-like-img"
-               (swipeleft)="swipeLeft($event, 'fadeOutTopLeft', i)">
+              <img [src]="prod.image" alt="" style="width: 100%"
+                   (swipeleft)="swipeLeft($event,'fadeOutTopLeft', i, like)"
+                   (swiperight)="swipeRight($event, 'fadeOutTopRight', i, dislike)" [id]="'image-'+i">
+
+              <img src="../assets/like-img.png" alt="like-img" class="card-img-custom like-img" #like>
+              <img src="../assets/deslike-img.png" alt="deslike-img" class="card-img-custom dis-like-img" #dislike>
+            </div>
+
+            <div class="card-content p-4 text-left" [id]="'description-'+i"
+                 (swipeleft)="swipeLeft($event,'fadeOutTopLeft', i, like)"
+                 (swiperight)="swipeRight($event, 'fadeOutTopRight', i, dislike)">
+              <h4>PRODUCT DETAILS</h4>
+              <h5>{{prod.description}}</h5>
+            </div>
+          </div>
         </div>
 
-        <div class="card-content p-4 text-left">
-          <h4>PRODUCT DETAILS</h4>
-          <h5>{{prod.description}}</h5>
+        <div class="text-center" (click)="reload()">Reload</div>
+      </div>
+
+
+      <div class="position-relative">
+        <div class="my-item-content p-4" id="liked-item" style="margin-top: 75vh">
+          <H4 style="color: #4DEA72;">MORE INFO</H4>
+          <div style="color: white" class="text-center" type="button" data-toggle="collapse"
+               data-target="#collapseExample"
+               aria-expanded="false" aria-controls="collapseExample">
+            <i class="fas fa-heart d-inline mr-3" style="font-size: 25px"></i>
+            <h4 class="d-inline">View my liked items</h4>
+            <div class="liked-count-view d-inline ml-3">{{count}}</div>
+          </div>
+        </div>
+
+        <div class="collapse" id="collapseExample">
+          <div class="card mt-3">
+
+            <div class="my-liked-item-container p-5 mb-4">
+              <h4 class="text-center">SAMPLE HEADLINE</h4>
+              <hr>
+              <h5 class="text-center">
+                Sample description Sample description Sample description Sample description Sample description
+              </h5>
+            </div>
+
+            <div class="my-liked-item-container p-5 mb-4">
+              <h4 class="text-center">SAMPLE HEADLINE</h4>
+              <hr>
+              <h5 class="text-center">
+                Sample description Sample description Sample description Sample description Sample description
+              </h5>
+            </div>
+
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="text-center" (click)="reload()">Reload</div>
-
-
-    <div class="my-item-content p-4" style="margin-top: 75vh">
-      <H4 style="color: #4DEA72;">MORE INFO</H4>
-      <div style="color: white" class="text-center" type="button" data-toggle="collapse" data-target="#collapseExample"
-           aria-expanded="false" aria-controls="collapseExample">
-        <i class="fas fa-heart d-inline mr-3" style="font-size: 25px"></i>
-        <h4 class="d-inline">View my liked items</h4>
-        <div class="liked-count-view d-inline ml-3">{{count}}</div>
-      </div>
-    </div>
-
-    <div class="collapse" id="collapseExample">
-      <div class="card mt-3">
-
-        <div class="my-liked-item-container p-5 mb-4">
-          <h4 class="text-center">SAMPLE HEADLINE</h4>
-          <hr>
-          <h5 class="text-center">
-            Sample description Sample description Sample description Sample description Sample description
-          </h5>
-        </div>
-
-        <div class="my-liked-item-container p-5 mb-4">
-          <h4 class="text-center">SAMPLE HEADLINE</h4>
-          <hr>
-          <h5 class="text-center">
-            Sample description Sample description Sample description Sample description Sample description
-          </h5>
-        </div>
-
-      </div>
     </div>
 
     <h2 class="text-center mt-5 mb-5 main-title">FEATURED PRODUCTS</h2>
@@ -146,4 +155,5 @@
 </div>
 
 
-<div style="width: 100px; height: 100px; background: #0C669A" id="my"></div>
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#0c669a" type="ball-scale-multiple"
+             [fullScreen]="true"></ngx-spinner>
