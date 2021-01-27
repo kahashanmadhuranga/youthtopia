@@ -22,7 +22,9 @@ export class AppComponent implements OnInit {
   featuredProducts: Array<any> = [];
   products: Array<any> = [];
   animationStateArray: Array<{ animationState: string }> = [];
-  count = 9;
+  count = 0;
+
+  likedItem: Array<{ image: string, title: string, description: string }> = [];
 
 
   constructor(private spinner: NgxSpinnerService) {
@@ -47,6 +49,7 @@ export class AppComponent implements OnInit {
     if (!this.animationStateArray[index].animationState) {
       element.style.display = 'block';
       this.animationStateArray[index].animationState = state;
+      this.setLikedItem(index);
       this.removeCard(index);
     }
   }
@@ -66,6 +69,12 @@ export class AppComponent implements OnInit {
       const element = document.getElementById('custom-card-' + (index - 1)) as HTMLElement;
       element.style.display = 'block';
     }
+  }
+
+  setLikedItem(index) {
+    this.likedItem.push(this.products[index]);
+    localStorage.setItem('likedItem', JSON.stringify(this.likedItem));
+    this.count++;
   }
 
   removeCard(index: number) {
