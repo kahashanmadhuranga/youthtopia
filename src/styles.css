@@ -1,7 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 
+h1 {
+  font-size: 50px !important;
+  font-weight: bolder !important;
+  color: #0C669A !important;
+  padding: 50px 0 15px 0 !important;
+}
+
 h2 {
-  font-weight: 500 !important;
+  font-size: 35px !important;
+  font-weight: bolder !important;
+  color: #0C669A !important;
+  padding: 80px 0 15px 0 !important;
 }
 
 body {
@@ -12,8 +22,7 @@ body {
 }
 
 .bg-light {
-  background: #0C669A 0 0 no-repeat padding-box !important;
-  /*opacity: 0.83;*/
+  background: rgba(12, 102, 154, 0.61) !important;
 }
 
 .navbar-nav .nav-link {
@@ -27,3 +36,28 @@ body {
 
 /*html, body { height: 100%; }*/
 /*body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }*/
+
+@media only screen and (max-width: 768px) {
+  h1 {
+    padding: 35px 0 15px 0 !important;
+    font-size: 35px !important;
+  }
+
+  h2 {
+    padding: 35px 0 0 0 !important;
+    font-size: 25px !important;
+  }
+}
+
+
+@media only screen and (max-width: 460px) {
+  h1 {
+    padding: 35px 0 15px 0 !important;
+    font-size: 25px !important;
+  }
+
+  h2 {
+    padding: 35px 0 0 0 !important;
+    font-size: 20px !important;
+  }
+}

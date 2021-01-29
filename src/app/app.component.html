@@ -53,6 +53,10 @@
           <a class="nav-link" href="#">SIGN OUT <span class="sr-only">(current)</span></a>
         </li>
 
+        <li>
+          <img src="../assets/user.png" alt="user-avatar" style="height: 34px; margin: 0px 10px;">
+        </li>
+
       </ul>
 
     </div>
@@ -62,7 +66,7 @@
 <div class="content">
   <div class="container">
 
-    <h1 class="text-center mt-5 main-title">YOUTHTOPIA COSUMES</h1>
+    <h1 class="text-center mt-5 main-title">YOUTHTOPIA CONSUMES</h1>
     <h4 class="text-center mb-3 main-title">Peer to peer product & brand discussion</h4>
 
     <div>
@@ -90,7 +94,8 @@
                  (swipeleft)="swipeLeft($event,'fadeOutTopLeft', i, like)"
                  (swiperight)="swipeRight($event, 'fadeOutTopRight', i, dislike)"
                  (swipeup)="swipeTop($event)" (swipedown)="swipeDown($event)">
-              <h4>PRODUCT DETAILS</h4>
+              <h3 class="text-uppercase">{{prod.title}}</h3>
+              <h3>PRODUCT DETAILS:</h3>
               <h5 class="comment-btn" data-toggle="modal" data-target=".bd-example-modal-lg">Comments</h5>
               <h4>{{prod.description}}</h4>
             </div>
@@ -103,21 +108,33 @@
 
       <div class="position-relative">
         <div class="my-item-content p-4" id="liked-item" style="margin-top: 75vh">
-          <H4 style="color: #4DEA72;">MORE INFO</H4>
-          <div style="color: white" class="text-center" type="button" data-toggle="collapse"
+
+          <button class="btn btn-custom">MORE INFO</button>
+          <button class="btn btn-custom share-btn">SHARE</button>
+
+          <!--          <H4 style="color: #4DEA72;">MORE INFO</H4>-->
+          <!--          <div style="color: white" class="text-center" type="button" data-toggle="collapse"-->
+          <!--               data-target="#collapseExample"-->
+          <!--               aria-expanded="false" aria-controls="collapseExample">-->
+          <!--            <i class="fas fa-heart d-inline mr-3" style="font-size: 25px"></i>-->
+          <!--            <h4 class="d-inline">View my liked items</h4>-->
+          <!--            <div class="liked-count-view d-inline ml-3">{{count}}</div>-->
+          <!--          </div>-->
+
+          <div class="like-itm-text-container" type="button" data-toggle="collapse"
                data-target="#collapseExample"
                aria-expanded="false" aria-controls="collapseExample">
-            <i class="fas fa-heart d-inline mr-3" style="font-size: 25px"></i>
-            <h4 class="d-inline">View my liked items</h4>
-            <div class="liked-count-view d-inline ml-3">{{count}}</div>
+            <i class="far fa-heart pr-2"></i>
+            VIEW MY LIKES
           </div>
+
         </div>
 
         <div class="collapse" id="collapseExample">
           <div class="card mt-3">
 
             <div class="my-liked-item-container p-5 mb-4" *ngFor="let data of likedItem">
-              <h2 class="text-center">{{data.title}}</h2>
+              <h3 class="text-center text-uppercase">{{data.title}}</h3>
               <hr>
               <h4 class="text-center">
                 {{data.description}}
@@ -130,15 +147,15 @@
 
     </div>
 
-    <h2 class="text-center mt-5 mb-5 main-title">FEATURED PRODUCTS</h2>
+    <h2 class="text-center main-title">FEATURED PRODUCTS</h2>
 
     <div class="row">
-      <div class="col-12 col-md-6 col-lg-4 col-xl-3" *ngFor="let data of featuredProducts">
+      <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-2" *ngFor="let data of featuredProducts">
 
         <div class="card">
           <div class="card-body">
             <img [src]="data.image" alt="" class="card-img">
-            <h4 class="card-title text-center pt-2">{{data.title}}</h4>
+            <h3 class="card-title text-center pt-2">{{data.title}}</h3>
             <h5 class="card-description text-center">{{data.description}}</h5>
           </div>
         </div>

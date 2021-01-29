@@ -22,6 +22,7 @@
 .card {
   background: transparent;
   border: none;
+  cursor: pointer;
 }
 
 .card-img {
@@ -117,6 +118,26 @@ hr {
   margin: 10px 0 10px 10px;
 }
 
+.btn-custom {
+  border: 2px solid white;
+  color: #fff;
+  outline: none;
+  padding: 3px 25px;
+  font-size: 13px;
+  min-width: 132px;
+}
+
+.share-btn {
+  margin-left: 10px;
+}
+
+.like-itm-text-container {
+  color: #ffffff;
+  float: right;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
 @media only screen and (max-width: 992px) {
   .card-img-custom {
     width: 65px;
@@ -126,6 +147,25 @@ hr {
 @media only screen and (max-width: 768px) {
   .card-img-custom {
     width: 50px;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .like-itm-text-container {
+    float: unset;
+    margin-top: 20px;
+    text-align: center;
+    text-align: -moz-center;
+    text-align: -webkit-center;
+  }
+
+  .btn-custom {
+    width: 100%;
+  }
+
+  .share-btn {
+    margin-left: 0;
+    margin-top: 15px;
   }
 }
 

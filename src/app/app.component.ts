@@ -11,8 +11,8 @@ import {NgxSpinnerService} from 'ngx-spinner';
   styleUrls: ['./app.component.css'],
   animations: [
     trigger('cardAnimator', [
-      transition('* => fadeOutTopLeft', animate(1500, keyframes(kf.fadeOutTopLeft))),
-      transition('* => fadeOutTopRight', animate(1500, keyframes(kf.fadeOutTopRight))),
+      transition('* => fadeOutTopLeft', animate(2000, keyframes(kf.fadeOutTopLeft))),
+      transition('* => fadeOutTopRight', animate(2000, keyframes(kf.fadeOutTopRight))),
     ])
   ]
 })
@@ -93,7 +93,7 @@ export class AppComponent implements OnInit {
     setTimeout(() => {
       this.animationStateArray.splice(index, 1);
       this.products.splice(index, 1);
-    }, 1150);
+    }, 1550);
   }
 
   setProducts() {
@@ -144,7 +144,7 @@ export class AppComponent implements OnInit {
       console.log('b');
       setTimeout(() => {
         likedItem.style.marginTop = '25px';
-      }, 750);
+      }, 1550);
     }
   }
 
